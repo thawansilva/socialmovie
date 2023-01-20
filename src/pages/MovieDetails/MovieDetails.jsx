@@ -8,6 +8,7 @@ import {
 } from "../../components/Details/StyledDetails";
 import Footer from "../../components/Footer/Footer";
 import LoadingCards from "../../components/LoadingCards/LoadingCards";
+import { StyledSkeletonMovieDetails } from "../../components/LoadingCards/StyledSkeleton";
 import Navbar from "../../components/Navbar/Navbar";
 import { fetchMovieDetail } from "../../services/MovieDBAPI";
 import AboutMovie from "./Info Movie/AboutMovie";
@@ -16,7 +17,7 @@ import ImageMovie from "./Info Movie/ImageMovie";
 import Recomendations from "./Info Movie/Recomendations";
 import SecondaryInformation from "./Info Movie/SecondaryInformation";
 
-const MovieDetails = () => {
+export const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState();
   useEffect(() => {
@@ -30,7 +31,12 @@ const MovieDetails = () => {
   return (
     <>
       <Navbar />
-      {movie ? (
+      {!movie && (
+        <StyledSkeletonMovieDetails>
+          <LoadingCards quant={1} width={1200} height={525} />
+        </StyledSkeletonMovieDetails>
+      )}
+      {movie && (
         <StyledDetails>
           <StyledMainInfo bgImage={movie.backdrop_path}>
             <ContainerInfoDetails>
@@ -46,12 +52,9 @@ const MovieDetails = () => {
           </Container>
           <Recomendations id={id} />
         </StyledDetails>
-      ) : (
-        <LoadingCards quant={1} width={1300} height={575} />
       )}
+
       <Footer />
     </>
   );
 };
-
-export default MovieDetails;

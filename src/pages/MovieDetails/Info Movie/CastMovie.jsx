@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardCast from "../../../components/CardCast/CardCast";
 import ButtonMore from "../../../components/Details/ButtonMore";
 import LoadingCards from "../../../components/LoadingCards/LoadingCards";
+import { StyledSkeleton } from "../../../components/LoadingCards/StyledSkeleton";
 import { fetchCastMovie } from "../../../services/MovieDBAPI";
 import { Grid } from "../../../styles/Layout";
 
@@ -22,7 +23,11 @@ const CastMovie = ({ id }) => {
     <>
       <div className="cast">
         <h2>Cast</h2>
-        {!cast && <LoadingCards quant={8} />}
+        {!cast && (
+          <StyledSkeleton>
+            <LoadingCards quant={8} width={175} height={300} />
+          </StyledSkeleton>
+        )}
         <Grid>{cast && <CardCast type="cast" cast={showCast} />}</Grid>
         <ButtonMore
           quant={cast.length}

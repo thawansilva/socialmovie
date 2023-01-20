@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound/NotFound";
-import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import { MovieDetails } from "./pages/MovieDetails/MovieDetails";
 import { GlobalStyle } from "./styles/Global";
 import ThemeColors from "./context/ThemeColor";
-import Person from "./pages/Person/Person";
+import { Person } from "./pages/Person/Person";
 import PersonalDetails from "./pages/PersonDetails.jsx/PersonalDetails";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Homepage from "./pages/Home/Home";

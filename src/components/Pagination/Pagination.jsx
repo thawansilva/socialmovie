@@ -15,7 +15,7 @@ const Pagination = (props) => {
 
   return (
     <ul>
-      <li key={0}>
+      <li key="first">
         <StyledButton
           disabled={currentPage === 1}
           title="First page"
@@ -43,11 +43,11 @@ const Pagination = (props) => {
           </>
         ))}
 
-      <li key={"last"}>
+      <li key="last">
         <StyledButton
           disabled={currentPage === total}
           title="Last page"
-          onClick={() => handlePageChange(total - 1000)}
+          onClick={() => handlePageChange(total)}
         >
           {">>"}
         </StyledButton>

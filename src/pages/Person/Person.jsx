@@ -12,7 +12,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import { fetchPeople } from "../../services/MovieDBAPI";
 import { Grid } from "../../styles/Layout";
 
-const Person = () => {
+export const Person = () => {
   const [people, setPeople] = useState([]);
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
@@ -35,16 +35,16 @@ const Person = () => {
       <Container>
         <SearchForm handleSubmit={handleSubmit} type="Person" />
         <h1 style={{ margin: "25px 0 5px 0" }}>Popular People</h1>
-        {!people.results && (
-          <StyledSkeleton>
-            <LoadingCards quant={8} />
-          </StyledSkeleton>
-        )}
 
         {people.results && people.results.length == 0 && (
           <p style={{ color: "#111", height: "450px" }}>
             No results were found that match your search criteria.
           </p>
+        )}
+        {!people && (
+          <StyledSkeleton>
+            <LoadingCards quant={8} />
+          </StyledSkeleton>
         )}
         <Grid>{people.results && <CardCast cast={people.results} />}</Grid>
         <StyledPagination>
@@ -69,5 +69,3 @@ const Person = () => {
     </>
   );
 };
-
-export default Person;

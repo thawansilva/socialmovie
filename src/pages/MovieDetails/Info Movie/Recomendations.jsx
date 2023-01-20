@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import CardMovies from "../../../components/CardMovies/CardMovies";
 import { Container } from "../../../components/Container";
 import { fetchMoviesRecomendations } from "../../../services/MovieDBAPI";
+import { StyledSkeleton } from "../../../components/LoadingCards/StyledSkeleton";
 import { Grid } from "../../../styles/Layout";
+import LoadingCards from "../../../components/LoadingCards/LoadingCards";
 
 const Recomendations = ({ id }) => {
   const [recomendations, setRecomendations] = useState([]);

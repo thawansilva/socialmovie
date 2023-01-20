@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardMovies from "../../../components/CardMovies/CardMovies";
 import ButtonMore from "../../../components/Details/ButtonMore";
 import LoadingCards from "../../../components/LoadingCards/LoadingCards";
+import { StyledSkeleton } from "../../../components/LoadingCards/StyledSkeleton";
 import { fetchPersonMovieCredits } from "../../../services/MovieDBAPI";
 import { Grid } from "../../../styles/Layout";
 import { StyledKnownFor } from "../StyledPersonData";
@@ -31,11 +32,15 @@ const KnownFor = ({ person, id }) => {
           <p>{person.biography}</p>
         </div>
       )}
-
+      <h2>Works</h2>
+      {!creditMovies && (
+        <StyledSkeleton>
+          <LoadingCards quant={8} width={160} height={300} />
+        </StyledSkeleton>
+      )}
       {creditMovies && (
         <div className="works">
           {!showCredits && <LoadingCards quant={8} />}
-          <h2>Works</h2>
           <Grid>
             <CardMovies movies={showCredits} type="credits" />
           </Grid>

@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 
-const LoadingCards = ({ quant, width = 200, height = 400 }) => {
+const LoadingCards = ({ quant, width = 240, height = 400 }) => {
   return Array(quant)
     .fill(0)
     .map((item, index) => {
