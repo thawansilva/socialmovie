@@ -8,9 +8,7 @@ This is a responsive web application for viewing in both Mobile and Desktop.
 
 ## Home Page
 
-<kbd>
-<img src="/img/homepage.png"/>
-</kdb>
+<img src="/img/homepage.png" alt="home page image"/>
 
 ## Demo
 
